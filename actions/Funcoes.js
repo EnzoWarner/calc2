@@ -1,10 +1,30 @@
 import { Alert } from 'react-native';
 
-export default function funcaoSoma(number1, number2) {
-    const sum = parseFloat(number1) + parseFloat(number2);
-    if (isNaN(sum)) {
-        alert('Erro', 'Por favor, insira números válidos.');
-    } else {
-        alert(`Resultado A soma é: ${sum}`);
-    }   
+class Funcoes{
+    static funcaoCalculo(number1, number2, acao) {
+        var sum;
+        switch (acao) {
+            case '+':
+                sum = parseFloat(number1) + parseFloat(number2);        
+                break;
+            case '-':
+                sum = parseFloat(number1) - parseFloat(number2);        
+                break;
+            case '*':
+                sum = parseFloat(number1) * parseFloat(number2);        
+                break;
+            case '/':
+                sum = parseFloat(number1) / parseFloat(number2);        
+                break;
+       
+            default:
+                break;
+        }  
+      if (isNaN(sum)) {
+        Alert.alert('Erro', 'Por favor, insira números válidos.');
+      } else {
+        Alert.alert('Resultado', `A soma é: ${sum}`);
+      }
+    }
 }
+export default Funcoes;
